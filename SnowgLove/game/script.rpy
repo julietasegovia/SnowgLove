@@ -4,6 +4,7 @@
 # name of the character.
 
 image background = im.Scale("images/background.jpg", 1920, 1080)
+image town = im.Scale("images/town.jpg", 1920, 1080)
 
 image snowballs_mad:
     "snowballs_mad.png"
@@ -11,6 +12,10 @@ image snowballs_mad:
 
 image snowballs_neutral:
     "snowballs_neutral.png"
+    zoom 1.5 
+
+image snowballs_smile:
+    "snowballs_smile.png"
     zoom 1.5 
 
 define pi = Character("Pingüí", color="#103f79")
@@ -69,7 +74,7 @@ label start:
 
     s "SNOWMAN?? I'm a snoWOMAN, thank you very much."
 
-    s "My name is Snowballs. {i}The first S is silent{/i}"
+    s "My name is Snowballs. {i}The first S is silent.{/i}"
 
     s "And I'm sick and tired of living in the shadow of snowmen!"
 
@@ -103,11 +108,49 @@ label start:
 
     "Snowballs turns around."
 
-    "Then, you see only the snowball on the bottom of Snowballs structure start to roll forward. Leaving a trail of the same diameter"
+    "Then, you see only the snowball on the bottom of Snowballs structure start to roll forward, leaving a trail of the same diameter."
 
     "You question if wether or not following a talking snowma... snowoman is the smartest choice."
 
-    "But you realize you don't have any other choice. So you follow"
+    "But you realize you don't have any other choice."
+
+    "So you follow."
+
+    scene town
+
+    show snowballs_smile
+
+    s "This is the town."
+
+    s "You have a while before midnight, just hang out here 'til then."
+
+    s "Anyways, I have to leave. I'm heading to the sauna."
+
+    hide snowballs_smile
+
+    s "See ya, astronomer!"
+
+    "You can't even argue before the snowoman leaves."
+
+    "You're still a little numb from the snow as you register this new place."
+
+    "You look around."
+
+    "Where should you go?"
+
+    menu:
+        "Spa":
+            jump sauna
+
+        "Gift Shop":
+            jump shop
+
+        "Misterious Factory":
+            jump santa
+
+        "Outside of Town":
+            jump igloo
+
 
     scene 
     # This ends the game.
