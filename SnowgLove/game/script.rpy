@@ -61,20 +61,15 @@ label start:
 
     s "Hey! Watch your step lady!"
 
-    show snowballs_neutral
-
     "You stare at the figure before you. Three snowballs piled on top of each other, with a carrot for nose and rocks for eyes."
 
     "You know what this is, this is a snowman. And did it just... talk?"
 
     y "I must be hallucinating... There's no way I'm getting in an argument with a snowman..."
 
-    hide snowballs_neutral
-    show snowballs_mad
-
     s "SNOWMAN?? I'm a snoWOMAN, thank you very much."
 
-    s "My name is Snowballs. (the first S is silent)"
+    s "My name is Snowballs. {i}The first S is silent{/i}"
 
     s "And I'm sick and tired of living in the shadow of snowmen!"
 
@@ -84,6 +79,37 @@ label start:
 
     s "That's right, that thing is wobbly. Makes me naseous!"
 
+    hide snowballs_mad
+    show snowballs_neutral
+
+    s "Anyways..."
+
+    s "I've never seen you before."
+
+    s "Where you heading?"
+    
+    y "I, uh... I don't know."
+
+    y "I mean, I have nothing to do until midnight."
+
+    "Snowballs goes quiet for a bit"
+
+    hide snowballs_neutral
+    show snowballs_smile
+
+    s "Fine. Follow me."
+
+    hide snowballs_smile
+
+    "Snowballs turns around."
+
+    "Then, you see only the snowball on the bottom of Snowballs structure start to roll forward. Leaving a trail of the same diameter"
+
+    "You question if wether or not following a talking snowma... snowoman is the smartest choice."
+
+    "But you realize you don't have any other choice. So you follow"
+
+    scene 
     # This ends the game.
 
     return
