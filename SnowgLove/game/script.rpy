@@ -89,6 +89,10 @@ label start:
 
     scene background with fade
 
+    play sound "wind.mp3"
+
+    play music "begining.mp3"
+
     "As you manage to regain your stance you notice the snowy landscape."
 
     "You look to your right and notice the bag filled with your equipment. You take it with you."
@@ -158,6 +162,7 @@ label start:
     "So you follow."
 
     scene town
+    play music "town.mp3"
 
     show snowballs_smile
 
@@ -191,8 +196,11 @@ label start:
 
     label shop:
         scene shop with fade
+        play sound "shop_bell.mp3"
 
         "You enter a warm and lively gift shop."
+
+        play music "shop.mp3"
 
         "Your typical store background music is playing. Each shelve decorated with cringy but unique christmas ornaments."
 
@@ -261,6 +269,7 @@ label start:
 
         "You walk out of the store avoiding eye contact as much as possible."
 
+        play sound "shop_bell.mp3"
         scene town with fade
 
         show pingui_smile
@@ -282,6 +291,7 @@ label start:
 
     label workshop:
         scene workshop with fade
+        play music "workshop.mp3"
 
         "The building is huge."
 
@@ -498,6 +508,7 @@ label start:
 
     label back_to_town:
         scene town with fade
+        play music "town.mp3"
 
         "Well..."
 
