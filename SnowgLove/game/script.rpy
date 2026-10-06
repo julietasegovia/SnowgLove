@@ -7,6 +7,7 @@ image background = im.Scale("images/background.jpg", 1920, 1080)
 image town = im.Scale("images/town.jpg", 1920, 1080)
 image shop = im.Scale("images/shop.jpg", 1920, 1080)
 image igloo = im.Scale("images/igloo.jpg", 1920, 1080)
+image workshop = im.Scale("images/workshop.jpg", 1920, 1080)
 image end = im.Scale("images/end.jpg", 1920, 1080)
 image end_screen = im.Scale("images/end_screen.jpg", 1920, 1080)
 
@@ -35,16 +36,28 @@ image poly_smile:
     zoom 1.5 
 
 image pingui_mad:
-    "pingui_upset.png"
-    zoom 1.5 
+    "pingui_mad.png"
+    zoom 2
 
 image pingui_neutral:
     "pingui_neutral.png"
-    zoom 1.5 
+    zoom 2 
 
 image pingui_smile:
     "pingui_smile.png"
-    zoom 1.5 
+    zoom 2 
+
+image mus_mad:
+    "mus_mad.png"
+    zoom 1.5
+
+image mus_neutral:
+    "mus_neutral.png"
+    zoom 1.5
+
+image mus_smile:
+    "mus_smile.png"
+    zoom 1.5
 
 define pi = Character("Pingüí", color="#103f79")
 define m = Character("Mus", color="#725440")
@@ -95,7 +108,7 @@ label start:
     s "Hey! Watch your step lady!"
 
     "You stare at the figure before you. Three snowballs piled on top of each other, with a carrot for nose and rocks for eyes."
-merch cringier 
+
     "You know what this is, this is a snowman. And did it just... talk?"
 
     y "I must be hallucinating... There's no way I'm getting in an argument with a snowman..."
@@ -171,7 +184,7 @@ merch cringier
             jump shop
 
         "Misterious Factory":
-            jump santa
+            jump workshop
 
         "Outside of Town":
             jump igloo
@@ -266,6 +279,97 @@ merch cringier
         pi "Follow me, north girl!"
 
         jump end
+
+    label workshop:
+        scene workshop with fade
+
+        "The building is huge."
+
+        "Every single light of every single room seems to be lit."
+
+        "You can hear the muffled noises of many people chatting there."
+
+        "You're still too far to figure out what any of it is."
+
+        "As you get closer you see someone lurking outside."
+
+        menu:
+            "Go ask the person where to see the aurora.":
+                jump mus_yes
+
+            "Go back to town to try better luck":
+                jump back_to_town
+
+
+        label mus_yes:
+        "You slowly approach that person, looking for directions"
+
+        y "Excuse me..."
+
+        m "EEK!"
+
+        "The person jumps and you take a few steps back"
+
+        show mus_mad 
+
+        m "SHH!"
+
+        y "What do you mean shh? You just screamed!"
+
+        m "I'm undercover! No one can find me!"
+
+        y "Huh?"
+
+        m "{i}Sigh...{/i}"
+        
+        m "I shouldn't be telling you this but I need to take this weight off my shoulders"
+        
+        hide mus_mad
+        show mus_neutral
+
+        m "I know I look like a reindeer..."
+
+        y "{i}You look like a moose with a plastic clown nose on...{/i}"
+
+        m "But I'm actually a moose, sent by the Canadian Uinted Moose to spy on the reindeer."
+
+        hide mus_neutral
+        show mus_mad
+
+        m "We are sick and tired of everyone loving reindeers. Moose are cool too!"
+
+        m "I'm here to watch and learn why do people love them so much. Soon, we moose will be as popular and loved as reindeer!"
+
+        hide mus_mad
+        show mus_neutral
+
+        m "..."
+
+        m "Uh... And who are you?"
+
+        y "I'm an astronomer looking for the perfect spot to watch the aurora."
+
+        m "You're not a local. Y-you're not Canadian are you? You can't tell anyone what I just told you!"
+
+        y "..."
+
+        y "Ugh... Fine."
+
+        show mus_smile
+
+        m "THANK YOU!"
+
+        hide mus_smile
+        show mus_neutral
+
+        m "After I'm done with my secret mission, let me take you to see the aurora!"
+
+        y "Sounds great"
+
+        jump end
+
+
+
 
     label igloo:
  
