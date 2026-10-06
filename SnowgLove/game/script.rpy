@@ -5,6 +5,7 @@
 
 image background = im.Scale("images/background.jpg", 1920, 1080)
 image town = im.Scale("images/town.jpg", 1920, 1080)
+image shop = im.Scale("images/shop.jpg", 1920, 1080)
 image igloo = im.Scale("images/igloo.jpg", 1920, 1080)
 image end = im.Scale("images/end.jpg", 1920, 1080)
 image end_screen = im.Scale("images/end_screen.jpg", 1920, 1080)
@@ -31,6 +32,18 @@ image poly_neutral:
 
 image poly_smile:
     "poly_smile.png"
+    zoom 1.5 
+
+image pingui_mad:
+    "pingui_upset.png"
+    zoom 1.5 
+
+image pingui_neutral:
+    "pingui_neutral.png"
+    zoom 1.5 
+
+image pingui_smile:
+    "pingui_smile.png"
     zoom 1.5 
 
 define pi = Character("Pingüí", color="#103f79")
@@ -82,7 +95,7 @@ label start:
     s "Hey! Watch your step lady!"
 
     "You stare at the figure before you. Three snowballs piled on top of each other, with a carrot for nose and rocks for eyes."
-
+merch cringier 
     "You know what this is, this is a snowman. And did it just... talk?"
 
     y "I must be hallucinating... There's no way I'm getting in an argument with a snowman..."
@@ -154,9 +167,6 @@ label start:
     "Where should you go?"
 
     menu:
-        "Spa":
-            jump sauna
-
         "Gift Shop":
             jump shop
 
@@ -166,6 +176,96 @@ label start:
         "Outside of Town":
             jump igloo
 
+    label shop:
+        scene shop with fade
+
+        "You enter a warm and lively gift shop."
+
+        "Your typical store background music is playing. Each shelve decorated with cringy but unique christmas ornaments."
+
+        "Everything in this store seems calm and slow."
+
+        pi "FORTY DOLLARS?"
+
+        "You turn around to see the person screaming."
+
+        show pingui_mad
+
+        "A penguin is screaming to himself as he holds a miniature reindeer statue."
+
+        pi "Can you believe it? Forty dollars!"
+
+        y "That's... quite pricy, yeah"
+
+        pi "They should be ashamed of themselves"
+
+        hide pingui_mad
+        show pingui_neutral
+
+        y "From all the things I've seen today this shouldn't be the one catching my eye but..."
+
+        y "Aren't penguins from the South Pole?"
+
+        pi "God forbid a hardworking non-flying bird takes a little vacation"
+
+        hide pingui_neutral
+        show pingui_smile
+
+        pi "Yeah, I'm from the south. Where Christmas is in Summer!"
+
+        pi "I bet that old man on the red suit melts each time he crosses the Equator..."
+
+        hide pingui_smile
+        show pingui_neutral
+
+        pi "Now, I might be a tourist but you don't look like a local either."
+
+        y "You're right, I'm an astronomer. I'm just here to see the aurora."
+
+        hide pingui_neutral
+        show pingui_smile
+
+        pi "Oh! I got recommended this aurora attraction a bunch!"
+
+        pi "Tell ya what, if you help me {i}steal this statue{/i} I'll take you to the best spot to watch the aurora!"
+
+        pi "Whatcha say?"
+
+        menu:
+            "Hell no, I'm out":
+                jump back_to_town
+            "Uh... Sure...":
+                jump pingui_yes
+
+    label pingui_yes:
+
+        pi "That's what I'm talking about!"
+
+        hide pingui_smile
+        show pingui_mad
+
+        pi "Now, quick. Hide it with your equipment. And walk out with a straight face."
+
+        "You walk out of the store avoiding eye contact as much as possible."
+
+        scene town with fade
+
+        show pingui_smile
+
+        pi "Ha! You're a hell of a criminal, north girl!"
+
+        hide pingui_smile
+        show pingui_neutral
+
+        pi "Thanks a bunch! My feathers are to clumsy for me to do this alone."
+
+        y "Yeah... Sure, can you take me to see the aurora now?"
+
+        pi "Ah, of course! You ain't no dumb criminal!"
+
+        pi "Follow me, north girl!"
+
+        jump end
 
     label igloo:
  
