@@ -5,6 +5,9 @@
 
 image background = im.Scale("images/background.jpg", 1920, 1080)
 image town = im.Scale("images/town.jpg", 1920, 1080)
+image igloo = im.Scale("images/igloo.jpg", 1920, 1080)
+image end = im.Scale("images/end.jpg", 1920, 1080)
+image end_screen = im.Scale("images/end_screen.jpg", 1920, 1080)
 
 image snowballs_mad:
     "snowballs_mad.png"
@@ -16,6 +19,18 @@ image snowballs_neutral:
 
 image snowballs_smile:
     "snowballs_smile.png"
+    zoom 1.5 
+
+image poly_mad:
+    "poly_upset.png"
+    zoom 1.5 
+
+image poly_neutral:
+    "poly_neutral.png"
+    zoom 1.5 
+
+image poly_smile:
+    "poly_smile.png"
     zoom 1.5 
 
 define pi = Character("Pingüí", color="#103f79")
@@ -46,7 +61,7 @@ label start:
     
     "You feel your legs getting numb from the cold as you brush off a pile of snow out of your face."
 
-    scene background
+    scene background with fade
 
     "As you manage to regain your stance you notice the snowy landscape."
 
@@ -80,7 +95,7 @@ label start:
 
     y "No, hey, I get it. I'm an astronomer, a woman in STEM..."
 
-    s "A woman in STEM? Try being a woman in SLED. Santa's sled."
+    s "A woman in STEM? Try being a woman in SLED."
 
     s "That's right, that thing is wobbly. Makes me naseous!"
 
@@ -151,6 +166,182 @@ label start:
         "Outside of Town":
             jump igloo
 
+
+    label igloo:
+ 
+        scene igloo with fade
+        "You start heading away from the lights and buildings."
+
+        "The breeze violently moves your lashes as you step further into the dark."
+
+        "You see a big pile of snow at the distance."
+
+        "Like, you could fit inside that snow pile."
+
+        play sound "roar.mp3"
+
+        "..."
+
+        "You freeze. And not because of the cold."
+
+        "You're fingers tremble in fear as you slowly accept the fact that you're now bear food."
+
+        po "Oh, sorry."
+
+        show poly_neutral
+
+        po "My yawns are pretty loud sometimes."
+
+        "You're still quivering as you look up to the big white bear in front of you."
+
+        "The bear looks at you confused. As you don't answer, they take the lead again."
+
+        hide poly_neutral
+        show poly_smile
+
+        po "My name is Poly, that igloo right there is my home."
+
+        hide poly_smile
+        show poly_neutral
+
+        po "Now, I don't know many of the town folk, but you seem forgein"
+
+        y "Uh, yeah, I'm not from here. I'm just here for an anstronomic investigation... I want to see the aurora borealis."
+
+        y "I don't blame you for not going to town often... That place is a little crazy"
+
+        hide poly_neutral
+        show poly_mad
+
+        po "Right..."
+
+        po "I'm just not too comfortable around most people."
+
+        y "You seem pretty comfortable around me"
+
+        hide poly_mad
+        show poly_smile
+
+        po "Really? I've been really practicing on not beign akward"
+
+        po "..."
+
+        hide poly_smile
+        show poly_neutral
+
+        y "..."
+
+        po "Uh, so... What's your favorite milk?"
+
+        y "..."
+
+        y "Uh... skimmed"
+
+        po "Cool, cool"
+
+        po "..."
+
+        y "..."
+
+        menu:
+            "You don't need to try so hard to make people like you, for the little time I've known you, I think your really cool":
+                jump poly_yes
+            "k bye":
+                jump back_to_town 
+
+    label poly_yes:
+        show poly_smile
+
+        po "Seriously? You mean that?"
+
+        po "That's so sweet astronomer! Thank you"
+
+        po "..."
+
+        po "You know, there's a very nice spot by my igloo to see the aurora..."
+
+        hide poly_smile
+        show poly_neutral
+
+        po "Uh would you wan't to come, maybe? If you're not busy, that is..."
+
+        menu:
+            "I'd love that":
+                jump poly_yes_yes
+            
+            "I'm alright":
+                jump poly_no
+
+    label poly_yes_yes:
+
+        show poly_smile
+
+        po "A-Awesome"
+
+        po "Follow me!"
+
+        jump end
+
+    label poly_no:
+        
+        show poly_neutral
+
+        po "Oh, right, I get it."
+
+        po "But if you change your mind, you know where to find me."
+
+        jump back_to_town
+
+    label back_to_town:
+        scene town with fade
+
+        "Well..."
+
+        "That was a weird interaction."
+
+        "Let's Ignore that and go somewhere else."
+
+        menu:
+            "Spa":
+                jump sauna
+
+            "Gift Shop":
+                jump shop
+
+            "Misterious Factory":
+                jump santa
+
+            "Outside of Town":
+                jump igloo
+
+    label end:
+
+        scene aurora with fade
+        "You made it."
+
+        "You got to see the aurora."
+
+        "And your new friend is right there with you."
+
+        "It's beautiful."
+
+        "Wait..."
+
+        play sound "sleigh.mp3"
+
+        "What's that sound?"
+
+        scene end with fade
+
+        play music "sleigh_ride.mp3"
+
+        "..."
+
+        "Oh my god."
+
+        scene end_screen with fade
+
+        ""
 
     scene 
     # This ends the game.
